@@ -7,6 +7,9 @@ namespace Library.Infrastructure.Repositories;
 
 public class AuthorRepository(LibraryDbContext context) : GenericRepository<Author>(context), IAuthorRepository
 {
+    public async Task<IEnumerable<Author>> GetAllWithBooksAsync() =>
+        await DbSet.Include(a => a.Books).ToListAsync();
+
     public async Task<Author?> GetByIdWithBooksAsync(int id) =>
         await DbSet.Include(a => a.Books).FirstOrDefaultAsync(a => a.Id == id);
 }

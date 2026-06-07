@@ -8,7 +8,7 @@ public class AuthorService(IAuthorRepository repository) : IAuthorService
 {
     public async Task<IEnumerable<AuthorDto>> GetAllAsync()
     {
-        var authors = await repository.GetAllAsync();
+        var authors = await repository.GetAllWithBooksAsync();
         return authors.Select(ToDto);
     }
 
