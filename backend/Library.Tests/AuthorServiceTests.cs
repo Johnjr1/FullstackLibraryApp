@@ -3,6 +3,7 @@ using Library.Application.Interfaces;
 using Library.Application.Services;
 using Library.Domain.Entities;
 using NSubstitute;
+using Xunit;
 
 namespace Library.Tests;
 
