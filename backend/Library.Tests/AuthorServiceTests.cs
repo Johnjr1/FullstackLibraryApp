@@ -19,11 +19,12 @@ public class AuthorServiceTests
     {
         // Arrange
         var authors = new List<Author>
-        {
-            new() { Id = 1, Name = "Astrid Lindgren", Bio = "Swedish author", Books = [] },
-            new() { Id = 2, Name = "Stieg Larsson", Bio = "Swedish crime writer", Books = [] }
-        };
-        _repository.GetAllAsync().Returns(authors);
+    {
+        new() { Id = 1, Name = "Astrid Lindgren", Bio = "Swedish author", Books = [] },
+        new() { Id = 2, Name = "Stieg Larsson", Bio = "Swedish crime writer", Books = [] }
+    };
+
+        _repository.GetAllWithBooksAsync().Returns(authors);
 
         // Act
         var result = await _sut.GetAllAsync();
